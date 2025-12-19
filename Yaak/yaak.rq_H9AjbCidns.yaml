@@ -1,0 +1,30 @@
+type: http_request
+model: http_request
+id: rq_H9AjbCidns
+createdAt: 2025-12-18T22:31:25.095450
+updatedAt: 2025-12-18T22:41:49.336191
+workspaceId: wk_E64k23VTCy
+folderId: null
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers:
+- enabled: true
+  name: Authorization
+  value: Token e739e1e7cb9b187e4b6e085e1dfcca2aaa12385b
+  id: IvvHk6gJkS
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: gtrYhvCscx
+- enabled: true
+  name: ''
+  value: ''
+  id: M8DjbzfMM2
+method: GET
+name: Read Assignments
+sortPriority: -1766080803845.0
+url: http://localhost:8000/assignments
+urlParameters: []
