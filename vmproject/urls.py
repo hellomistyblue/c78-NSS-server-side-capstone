@@ -1,9 +1,12 @@
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from vmapi.views import register_user, login_user
+from vmapi.views import register_user, login_user, AssignmentView
 
 router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'assignments', AssignmentView, 'assignment')
+
+
 
 urlpatterns = [
     path('', include(router.urls)),
