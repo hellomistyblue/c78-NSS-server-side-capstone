@@ -1,0 +1,30 @@
+type: http_request
+model: http_request
+id: rq_wKcycje4tw
+createdAt: 2025-12-19T20:20:21.644892
+updatedAt: 2025-12-19T20:36:50.994695
+workspaceId: wk_E64k23VTCy
+folderId: null
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: TKtbXxWJvh
+- enabled: true
+  name: Authorization
+  value: Token e739e1e7cb9b187e4b6e085e1dfcca2aaa12385b
+  id: 8sT9dYcwIV
+- enabled: true
+  name: ''
+  value: ''
+  id: 2nyXG86BeV
+method: GET
+name: Read Status
+sortPriority: -1766080803845.0
+url: http://localhost:8000/statuses
+urlParameters: []

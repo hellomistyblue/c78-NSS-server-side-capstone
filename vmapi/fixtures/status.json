@@ -1,0 +1,16 @@
+[
+    {
+        "model": "vmapi.status",
+        "pk": 1,
+        "fields": {
+            "type": "Assigned"
+        }
+    },
+    {
+        "model": "vmapi.status",
+        "pk": 2,
+        "fields": {
+            "type": "Unassigned"
+        }
+    }
+]
