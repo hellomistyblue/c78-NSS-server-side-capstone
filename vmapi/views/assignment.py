@@ -50,13 +50,13 @@ class AssignmentView(ViewSet):
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as ex:
             return HttpResponseServerError(ex)
-        
+    
 
 class AssignmentUserSerializer(serializers.ModelSerializer):
 
     class Meta: 
         model = User
-        fields = ( 'first_name', 'last_name')
+        fields = ( 'first_name', 'last_name' )
 
 class AssignmentSerializer(serializers.ModelSerializer):
     """JSON serializer"""
