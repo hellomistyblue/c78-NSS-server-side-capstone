@@ -3,14 +3,14 @@
         "model": "vmapi.status",
         "pk": 1,
         "fields": {
-            "type": "Assigned"
+            "type": "Available"
         }
     },
     {
         "model": "vmapi.status",
         "pk": 2,
         "fields": {
-            "type": "Unassigned"
+            "type": "Unavailable"
         }
     }
 ]
