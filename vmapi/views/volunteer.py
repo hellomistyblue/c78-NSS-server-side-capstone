@@ -66,6 +66,7 @@ class VolunteerView(ViewSet):
             volunteer = Volunteer.objects.get(pk=pk)
             serializer = VolunteerSerializer(volunteer)
             return Response(serializer.data)
+        
         except Exception as ex:
             return Response({"reason": ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
 
