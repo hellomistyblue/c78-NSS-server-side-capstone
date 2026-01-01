@@ -1,13 +1,16 @@
-
+import Assignments from "./Assignments"
 
 const AssignmentsPage = ({ currentUserId }) => {
 
 
     return (
-        <div>
-            <h1>Assignments</h1>
+        <main>
+            <div>
+                <h1>Assignments</h1>
+            </div>
+                    <Assignments />
+        </main>
 
-        </div>
     )
 }
 
