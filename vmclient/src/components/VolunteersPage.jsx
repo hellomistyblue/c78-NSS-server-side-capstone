@@ -1,13 +1,15 @@
-
+import Volunteers from "./Volunteers"
 
 const VolunteersPage = ({ currentUserId }) => {
 
-
     return (
-        <div>
-            <h1>Volunteers</h1>
-            
-        </div>
+        <main>
+            <div>
+                <h1>Volunteers</h1>
+            </div>
+            <Volunteers />    
+        </main>
+        
     )
 }
 
