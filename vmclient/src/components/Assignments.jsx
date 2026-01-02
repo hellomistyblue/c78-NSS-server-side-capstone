@@ -1,14 +1,6 @@
-import { useState, useEffect } from "react"
 import AssignmentItem from "./AssignmentItem"
-import { getAssignments } from "../services/assignmentService"
 
-const Assignments = () => {
-    const [assignmentsArray, setAssignmentsArray] = useState([])
-    useEffect(() => {
-        getAssignments().then((assignments) => {
-            setAssignmentsArray(assignments)
-        })
-    }, [])
+const Assignments = ({assignmentsArray}) => {
 
     return (
         <section>
@@ -23,7 +15,6 @@ const Assignments = () => {
                 )
             })}
         </section>
-
     )
 }
 
