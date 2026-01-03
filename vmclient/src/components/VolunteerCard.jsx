@@ -4,12 +4,16 @@ import { getAssignments } from '../services/assignmentService'
 import { getAssignmentsForVolunteer } from '../services/volunteerAssignmentsService'
 import { createVolunteersForAssignment } from '../services/volunteerAssignmentsService'
 import { deleteAssignmentVolunteer } from '../services/volunteerAssignmentsService'
+import { getVolunteerStatuses } from '../services/statusService'
+import { updateVolunteerStatus } from '../services/volunteerService'
 
 
 const VolunteerCard = ({ volunteer }) => {
     const [assignmentsArray, setAssignmentsArray] = useState([])
     const [assignmentsForVolunteerArray, setAssignmentsForVolunteersArray] = useState([])
     const [selectedAssignments, setSelectedAssignments] = useState([])
+    const [statusArray, setStatusArray] = useState([])
+    const [selectedStatus, setSelectedStatus] = useState(null)
 
     useEffect(() => {
         getAssignments().then((assignments) => {
@@ -31,16 +35,51 @@ const VolunteerCard = ({ volunteer }) => {
         setSelectedAssignments(selectedOptions)
     }, [assignmentsForVolunteerArray])
 
-    const options = assignmentsArray.map(assignment => ({
+    useEffect(() => {
+        getVolunteerStatuses().then((statuses) => {
+            setStatusArray(statuses)
+        })
+    }, [])
+
+    useEffect(() => {
+        if (volunteer.status_id && statusArray.length > 0) {
+            const currentStatus = statusArray.find(status => status.id === volunteer.status_id)
+            if (currentStatus) {
+                setSelectedStatus({
+                    value: currentStatus.id,
+                    label: currentStatus.type
+                })
+            }
+        }
+    }, [volunteer.status_id, statusArray])
+
+    const assignmentOptions = assignmentsArray.map(assignment => ({
         value: assignment.id,
         label: assignment.name
     }))
 
+    const statusOptions = statusArray.map(status => ({
+        value: status.id,
+        label: status.type
+    }))
 
 
-    const MyComponent = () => (
+    const StatusSelect = () => (
         <Select
-            options={options}
+            options={statusOptions}
+            value={selectedStatus}
+            onChange={(selectedOption) => {
+                
+                updateVolunteerStatus(volunteer.id, selectedOption.value).then(() => {
+                 setSelectedStatus(selectedOption)
+                })
+            }}
+        />
+    )
+    
+    const AssignmentsMultiSelect = () => (
+        <Select
+            options={assignmentOptions}
             isMulti
             value={selectedAssignments}
             onChange={(selectedOptions) => {
@@ -95,7 +134,8 @@ const VolunteerCard = ({ volunteer }) => {
                     </div>
                 )
             })}
-            <MyComponent />
+            <StatusSelect />
+            {volunteer?.status_id  === 1 && <AssignmentsMultiSelect />}
         </div>
     )
 }

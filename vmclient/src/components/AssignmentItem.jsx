@@ -36,7 +36,7 @@ const AssignmentItem = ({ assignments }) => {
         label: volunteer.full_name
     }))
 
-    const MyComponent = () => (
+    const VolunteerMultiSelect = () => (
         <Select
             options={options}
             isMulti
@@ -105,7 +105,7 @@ const AssignmentItem = ({ assignments }) => {
                     </div>
                 )
             })}
-            <MyComponent />
+            <VolunteerMultiSelect />
         </div>
     )
 
