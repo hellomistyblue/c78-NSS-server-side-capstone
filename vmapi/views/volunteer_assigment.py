@@ -57,7 +57,9 @@ class VolunteerAssignmentView(ViewSet):
 
         try:
             # Start with all rows
-            volunteer_assignments = VolunteerAssignment.objects.all()
+            volunteer_assignments = VolunteerAssignment.objects.filter(
+                volunteer_id__user=request.user
+            )
 
             if volunteer_id is not None:
                 # Filter to only the current volunteer's assignments
@@ -93,9 +95,11 @@ class VolunteerAssignmentView(ViewSet):
 
 class VolunteerAssignmentSerializer(serializers.ModelSerializer):
     """JSON serializer"""
+    volunteer_name = serializers.CharField(source='volunteer_id.full_name',read_only=True)
+    assignment_name = serializers.CharField(source='assignment_id.name',read_only=True)
 
     class Meta:
         model = VolunteerAssignment
-        fields = ('id', 'volunteer_id', 'assignment_id')
+        fields = ('id', 'volunteer_id', 'volunteer_name', 'assignment_id', 'assignment_name')
 
 
