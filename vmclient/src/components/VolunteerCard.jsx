@@ -69,18 +69,19 @@ const VolunteerCard = ({ volunteer }) => {
             options={statusOptions}
             value={selectedStatus}
             onChange={(selectedOption) => {
-                
+
                 updateVolunteerStatus(volunteer.id, selectedOption.value).then(() => {
-                 setSelectedStatus(selectedOption)
+                    setSelectedStatus(selectedOption)
                 })
             }}
         />
     )
-    
+
     const AssignmentsMultiSelect = () => (
         <Select
             options={assignmentOptions}
             isMulti
+            className="assignment-multi-select"
             value={selectedAssignments}
             onChange={(selectedOptions) => {
                 const newArray = selectedOptions || []
@@ -119,23 +120,16 @@ const VolunteerCard = ({ volunteer }) => {
         />)
 
     return (
-        <div>
-            <h2>{volunteer?.full_name}</h2>
-            <p>{volunteer?.phone}</p>
-            <p>{volunteer?.email}</p>
-            <h3>Assignments</h3>
-
-            {assignmentsForVolunteerArray.map((assignmentObj) => {
-                return (
-                    <div
-                        key={assignmentObj.id}
-                    >
-                        {assignmentObj.assignment_name}
-                    </div>
-                )
-            })}
-            <StatusSelect />
-            {volunteer?.status_id  === 1 && <AssignmentsMultiSelect />}
+        <div className="form-volunteer-card">
+            <div>
+                <h2>{volunteer?.full_name}</h2>
+                <p>{volunteer?.phone}</p>
+                <p>{volunteer?.email}</p>
+                {volunteer?.status_id === 1 && <AssignmentsMultiSelect />}
+            </div>
+            <div>
+                <StatusSelect />
+            </div>
         </div>
     )
 }

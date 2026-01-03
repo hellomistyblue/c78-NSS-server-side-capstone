@@ -17,7 +17,6 @@ const VolunteersPage = () => {
             <div>
                 <h1>Volunteers</h1>
             </div>
-            <h2>Add Volunteer</h2>
             <VolunteerForm
                 setVolunteersArray={setVolunteersArray} />
             <Volunteers

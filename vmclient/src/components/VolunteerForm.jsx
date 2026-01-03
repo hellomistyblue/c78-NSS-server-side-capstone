@@ -3,7 +3,7 @@ import { createVolunteer } from "../services/volunteerService"
 import { getVolunteers } from "../services/volunteerService"
 
 
-const VolunteerForm = ({setVolunteersArray}) => {
+const VolunteerForm = ({ setVolunteersArray }) => {
     const initialState = {
         status_id: 1,
         full_name: "",
@@ -50,8 +50,8 @@ const VolunteerForm = ({setVolunteersArray}) => {
         await createVolunteer(volunteer)
         setVolunteer(initialState)
         getVolunteers().then((volunteers) => {
-                    setVolunteersArray(volunteers)
-                })
+            setVolunteersArray(volunteers)
+        })
     }
 
     const validateForm = () => {
@@ -73,39 +73,44 @@ const VolunteerForm = ({setVolunteersArray}) => {
     return (
         <div>
             <form className="form-add-volunteer">
-                <fieldset>
-                    <label htmlFor="fullName">Full Name</label>
-                    <input
-                        id="fullName"
-                        type="text"
-                        value={volunteer.full_name}
-                        onChange={handleFullNameChange}
-                        placeholder="Enter full name"
-                    />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="email">Email</label>
-                    <input
-                        id="email"
-                        type="text"
-                        value={volunteer.email}
-                        onChange={handleEmailChange}
-                        placeholder="Enter email"
-                    />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="phoneNumber">Phone Number</label>
-                    <input
-                        id="phoneNumber"
-                        type="text"
-                        value={volunteer.phone}
-                        onChange={handlePhoneChange}
-                        placeholder="Enter phone number"
-                    />
-                </fieldset>
-                <button
-                onClick={handleClick}
-                >Add Volunteer</button>
+                <h2>Add Volunteer</h2>
+                <div className="form-info-fieldsets">
+                    <fieldset>
+                        <label htmlFor="fullName">Full Name</label>
+                        <input
+                            id="fullName"
+                            type="text"
+                            value={volunteer.full_name}
+                            onChange={handleFullNameChange}
+                            placeholder="John Doe"
+                        />
+                    </fieldset>
+                    <fieldset>
+                        <label htmlFor="email">Email</label>
+                        <input
+                            id="email"
+                            type="text"
+                            value={volunteer.email}
+                            onChange={handleEmailChange}
+                            placeholder="j.doe@email.com"
+                        />
+                    </fieldset>
+                    <fieldset>
+                        <label htmlFor="phoneNumber">Phone Number</label>
+                        <input
+                            id="phoneNumber"
+                            type="text"
+                            value={volunteer.phone}
+                            onChange={handlePhoneChange}
+                            placeholder="(615) 202-4727"
+                        />
+                    </fieldset>
+                </div>
+                <div className="form-button">
+                    <button
+                        onClick={handleClick}
+                    >Add Volunteer</button>
+                </div>
             </form>
         </div>
     )
