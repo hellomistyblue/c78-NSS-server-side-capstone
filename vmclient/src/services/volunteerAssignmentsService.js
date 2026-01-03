@@ -9,6 +9,16 @@ export const getVolunteersForAssignment = (assignmentId) => {
     }).then((res) => res.json());
 };
 
+export const getAssignmentsForVolunteer = (volunteerId) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    return fetch(`http://localhost:8000/volunteer_assignments?volunteer_id=${volunteerId}`, {
+        method: "GET",       
+        headers: {
+            "Authorization": `Token ${user.token}`, 
+            "Content-Type": `application/json`
+        }
+    }).then((res) => res.json());
+};
 
 export const deleteVolunteerAssignment = (volunteerAssignmentId) => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -39,5 +49,16 @@ export const createVolunteersForAssignment = (assignmentObj) => {
             });
         }
         return res.json();
+    });
+};
+
+export const deleteAssignmentVolunteer = (assignmentVolunteerId) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    return fetch(`http://localhost:8000/volunteer_assignments/${assignmentVolunteerId}`, {
+        method: "DELETE",       
+        headers: {
+            "Authorization": `Token ${user.token}`, 
+            "Content-Type": `application/json`
+        }
     });
 };
