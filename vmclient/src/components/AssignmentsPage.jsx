@@ -1,7 +1,7 @@
 import Assignments from "./Assignments"
 import AssignmentForm from "./AssignmentForm"
 import { getAssignments } from "../services/assignmentService"
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react'
 
 
 const AssignmentsPage = () => {
@@ -27,6 +27,8 @@ const AssignmentsPage = () => {
 
     )
 }
+
+
 
 export default AssignmentsPage
 
