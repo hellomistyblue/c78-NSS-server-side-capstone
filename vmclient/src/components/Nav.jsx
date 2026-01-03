@@ -14,8 +14,8 @@ const Nav = () => {
                 <li className="nav-item">
                     <Link to="/assignments">Assignments</Link>
                 </li>
-            </ul>
-            {localStorage.getItem("user") ? (
+                <li className="nav-item">
+                    {localStorage.getItem("user") ? (
                 <div className="nav-item nav-logout">
                     <Link
                         className="nav-link"
@@ -31,6 +31,9 @@ const Nav = () => {
             ) : (
                 ""
             )}
+                </li>
+            </ul>
+            
         </nav>
     )
 }
