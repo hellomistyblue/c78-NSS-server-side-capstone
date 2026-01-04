@@ -87,27 +87,14 @@ const AssignmentItem = ({ assignments }) => {
         />)
 
     return (
-        <div>
-            <p>{assignments?.name}</p>
-            <h3>Volunteers</h3>
-
-            {errorMessage && (
-                <div style={{ color: 'red', padding: '10px', marginBottom: '10px' }}>
-                    {errorMessage}
-                </div>
-            )}
-
-            {volunteersForAssignmentArray.map((volunteerObj) => {
-                return (
-                    <div
-                        key={volunteerObj.id}
-                    >
-                        {volunteerObj.volunteer_name}
-                    </div>
-                )
-            })}
-            <VolunteerMultiSelect />
-        </div>
+        <tr>
+            <td data-label="Assignment">
+                <p>{assignments?.name}</p>
+            </td>
+            <td data-label="Volunteers"> 
+                <VolunteerMultiSelect />
+            </td>
+        </tr>
     )
 
 }
