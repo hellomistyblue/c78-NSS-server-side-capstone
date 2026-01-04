@@ -35,7 +35,6 @@ export const Login = () => {
           <h1 className="header">Log in</h1>
           <h2>Please sign in</h2>
           <fieldset className="auth-fieldset">
-            <div>
               <input
                 type="email"
                 value={email}
@@ -53,7 +52,7 @@ export const Login = () => {
                 placeholder="Password"
                 required
               />
-            </div> 
+
           </fieldset>
           <fieldset className="auth-fieldset">
             <div>
