@@ -14,7 +14,7 @@ const VolunteerCard = ({ volunteer }) => {
     const [selectedAssignments, setSelectedAssignments] = useState([])
     const [statusArray, setStatusArray] = useState([])
     const [selectedStatus, setSelectedStatus] = useState(null)
-
+    console.log(selectedStatus)
     useEffect(() => {
         getAssignments().then((assignments) => {
             setAssignmentsArray(assignments)
@@ -127,7 +127,7 @@ const VolunteerCard = ({ volunteer }) => {
                 <h2>{volunteer?.full_name}</h2>
                 <p>{volunteer?.phone}</p>
                 <p>{volunteer?.email}</p>
-                {volunteer?.status_id === 1 && <AssignmentsMultiSelect />}
+                {selectedStatus?.value === 1 && <AssignmentsMultiSelect />}
             </div>
             <div>
                 <StatusSelect/>
