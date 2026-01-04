@@ -93,15 +93,19 @@ input[type=text] {
   margin: 1px;
 }
 
-.form-volunteer-card h2 {
+.form-volunteer-card h2, .form-add-assignment h2 {
   margin: 0px;
 }
 
-.volunteer-assignments {
+.volunteer-assignments, .form-assignment-fieldset {
   display: flex;
   gap: 16px;
   margin-top: 8px;
 
+}
+
+.form-assignment-fieldset {
+  align-items: flex-end;
 }
 
 .volunteer-assignment {
@@ -115,3 +119,57 @@ input[type=text] {
   margin-top: 12px;
 }
 
+.form-add-assignment {
+  border: 1px solid #2d3748;
+  border-radius: 6px;
+  padding: 20px;
+  background: linear-gradient(to left, #16192a, #2a3142);
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #2d3748;;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Stacked layout on small screens */
+@media screen and (max-width: 767px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead tr {
+    display: none; /* Hide the main header row */
+  }
+  
+  tr {
+    margin-bottom: 15px;
+    border: 1px solid #2d3748;;
+    border-radius: 8px;
+    padding: 10px;
+   
+  }
+
+  td {
+    border: none;
+    border-bottom: 1px solid #2d3748;;
+    position: relative;
+    text-align: center;
+  }
+
+  td:last-child {
+    border-bottom: none;
+  }
+}
