@@ -4,7 +4,7 @@ import { createAssignment } from "../services/assignmentService"
 
 
 
-const AssignmentForm = ({setAssignmentsArray}) => {
+const AssignmentForm = ({ setAssignmentsArray }) => {
     const initialState = {
         name: "",
     }
@@ -37,11 +37,11 @@ const AssignmentForm = ({setAssignmentsArray}) => {
         await createAssignment(assignment)
         setAssignment(initialState)
         getAssignments().then((assignments) => {
-                    setAssignmentsArray(assignments)
-                })
+            setAssignmentsArray(assignments)
+        })
     }
 
-        const validateForm = () => {
+    const validateForm = () => {
         const missingFields = []
 
         if (!assignment.name.trim()) {
@@ -51,20 +51,24 @@ const AssignmentForm = ({setAssignmentsArray}) => {
     }
     return (
         <div>
-            <form className="form-add-volunteer">
-                <fieldset>
-                    <label htmlFor="fullName">Assignment Name</label>
-                    <input
-                        id="name"
-                        type="text"
-                        value={assignment.name}
-                        onChange={handleAssignmentChange}
-                        placeholder="Enter assignment name"
-                    />
-                </fieldset>
-                <button
-                onClick={handleClick}
-                >Add Assignment</button>
+            <form className="form-add-assignment">
+                <h2>Add Assignment</h2>
+                <div className="form-assignment-fieldset">
+                    <fieldset>
+                        <label htmlFor="fullName">Assignment Name</label>
+                        <input
+                            id="name"
+                            type="text"
+                            value={assignment.name}
+                            onChange={handleAssignmentChange}
+                            placeholder="Enter assignment name"
+                        />
+                    </fieldset>
+                    <button
+                        onClick={handleClick}
+                    >Add Assignment</button>
+                </div>
+
             </form>
         </div>
     )

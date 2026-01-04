@@ -18,7 +18,6 @@ const AssignmentsPage = () => {
             <div>
                 <h1>Assignments</h1>
             </div>
-            <h2>Add Assignment</h2>
                 <AssignmentForm 
                     setAssignmentsArray={setAssignmentsArray} />
                 <Assignments
