@@ -40,6 +40,7 @@ const AssignmentItem = ({ assignments }) => {
         <Select
             options={options}
             isMulti
+            classNamePrefix="react-select"
             value={selectedVolunteers}
             onChange={(selectedOptions) => {
                 const newArray = selectedOptions || []
