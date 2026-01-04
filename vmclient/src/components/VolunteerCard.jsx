@@ -67,6 +67,7 @@ const VolunteerCard = ({ volunteer }) => {
     const StatusSelect = () => (
         <Select
             options={statusOptions}
+            classNamePrefix="react-select"
             value={selectedStatus}
             onChange={(selectedOption) => {
 
@@ -82,6 +83,7 @@ const VolunteerCard = ({ volunteer }) => {
             options={assignmentOptions}
             isMulti
             className="assignment-multi-select"
+            classNamePrefix="react-select"
             value={selectedAssignments}
             onChange={(selectedOptions) => {
                 const newArray = selectedOptions || []
@@ -128,7 +130,7 @@ const VolunteerCard = ({ volunteer }) => {
                 {volunteer?.status_id === 1 && <AssignmentsMultiSelect />}
             </div>
             <div>
-                <StatusSelect />
+                <StatusSelect/>
             </div>
         </div>
     )
