@@ -11,8 +11,6 @@ export const Authorized = ({ children }) => {
     return children
   }
 
-//*******************"user" on line #10 above was edited from "learning_user" in case that line is problematic later naming-wise*********************
-
   // If the user is NOT logged in, redirect them to the login page using the Navigate component from react-router-dom
   else {
     return <Navigate to={`/login`} state={{ from: location }} replace />
