@@ -14,7 +14,7 @@ const VolunteerCard = ({ volunteer }) => {
     const [selectedAssignments, setSelectedAssignments] = useState([])
     const [statusArray, setStatusArray] = useState([])
     const [selectedStatus, setSelectedStatus] = useState(null)
-    console.log(selectedStatus)
+
     useEffect(() => {
         getAssignments().then((assignments) => {
             setAssignmentsArray(assignments)
@@ -82,6 +82,7 @@ const VolunteerCard = ({ volunteer }) => {
         <Select
             options={assignmentOptions}
             isMulti
+            isClearable={false}
             className="assignment-multi-select"
             classNamePrefix="react-select"
             value={selectedAssignments}
