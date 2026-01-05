@@ -14,7 +14,7 @@ const Assignments = ({ assignmentsArray }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {assignmentsArray.length === 0 ? <p>Who are you adding to Assignments?</p> : assignmentsArray.map((assignmentsObj) => {
+                    {assignmentsArray.length === 0 ? <tr><td>Who are you adding to Assignments?</td><td></td></tr> : assignmentsArray.map((assignmentsObj) => {
                         return (
                             <AssignmentItem
                                 assignments={assignmentsObj}

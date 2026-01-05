@@ -89,7 +89,7 @@ const AssignmentItem = ({ assignments }) => {
     return (
         <tr>
             <td data-label="Assignment">
-                <p>{assignments?.name}</p>
+                {assignments?.name}
             </td>
             <td data-label="Volunteers"> 
                 <VolunteerMultiSelect />
