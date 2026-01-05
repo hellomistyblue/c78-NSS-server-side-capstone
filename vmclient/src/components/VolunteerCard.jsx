@@ -6,7 +6,7 @@ import { createVolunteersForAssignment } from '../services/volunteerAssignmentsS
 import { deleteAssignmentVolunteer } from '../services/volunteerAssignmentsService'
 import { getVolunteerStatuses } from '../services/statusService'
 import { updateVolunteerStatus } from '../services/volunteerService'
-
+import { getVolunteersForAssignment } from '../services/volunteerAssignmentsService'
 
 const VolunteerCard = ({ volunteer }) => {
     const [assignmentsArray, setAssignmentsArray] = useState([])
@@ -110,7 +110,7 @@ const VolunteerCard = ({ volunteer }) => {
 
                         if (assignmentVolunteer) {
                             deleteAssignmentVolunteer(assignmentVolunteer.id).then(() => {
-                                getAssignmentsForVolunteer(assignments.id).then((assignments) => {
+                                getAssignmentsForVolunteer(volunteer.id).then((assignments) => {
                                     setAssignmentsForVolunteersArray(assignments)
                                 })
                             })
@@ -119,7 +119,8 @@ const VolunteerCard = ({ volunteer }) => {
                 }
                 setSelectedAssignments(newArray)
             }}
-        />)
+        />
+    )
 
     return (
         <div className="form-volunteer-card">
@@ -130,7 +131,7 @@ const VolunteerCard = ({ volunteer }) => {
                 {selectedStatus?.value === 1 && <AssignmentsMultiSelect />}
             </div>
             <div>
-                <StatusSelect/>
+                <StatusSelect />
             </div>
         </div>
     )
